@@ -135,9 +135,13 @@ void drawMousePoint(int mx, int my){
 void drawRollover(int mx, int my, float x, float y){
   x = round(x);
   y = round(y);
+  float w = plotX2 - plotX1;
+  float h = plotY2 - plotY1;
+  float yy = h - (y - plotY1);
+  float xx = x - plotX1;
   float d = sqrt(pow(mx-x, 2) + pow(my-y,2));
   if(d <= 12){
-    String txt = "Point " + x + ", "+ y;
+    String txt = "Point " + xx + ", "+ yy;
     textSize(16);
     fill(color(0));
     rect(x, y, x+textWidth(txt), y-20);
